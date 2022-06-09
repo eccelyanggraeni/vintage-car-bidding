@@ -37,6 +37,30 @@
         @endif
         <input class="btn btn-primary mt-2" type="submit" value="Save">
     </form>
+    
+    <h3 class="mt-5">Riwayat Service</h3>
+    <div class="row">
+        <div class="col-sm-4">
+            <a class="btn btn-primary" href="/crudriwayatform?product_id={{$produk->id}}">Add</a>
+            <table class="table">
+                <tbody>
+                @if(isset($produk) && count($produk->history)>0)
+                @foreach($produk->history as $ph)
+                    <tr>
+                        <td>{{date('M d, Y',strtotime($ph->history_date))}}</td>
+                        <td style="word-break: break-all">{{$ph->history}}</td>
+                        <td><a class="btn btn-danger" href="/hapusriwayat?id={{$ph->id}}">Delete</a></td>
+                    </tr>
+                @endforeach
+                @else
+                    <tr>
+                        <td colspan="3">Tidak ada riwayat</td>
+                    </tr>
+                @endif
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 @include('layout.footer')

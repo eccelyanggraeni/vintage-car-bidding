@@ -12,6 +12,6 @@ class Bidding extends Model
     protected $table = 'bidding';
     public function product()
     {
-        return $this->hasMany(Product::class,'product_id','id');
+        return $this->belongsTo(Product::class,'product_id','id');
     }
 }

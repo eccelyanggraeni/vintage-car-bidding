@@ -15,16 +15,16 @@ class Product extends Model
 
     public function history()
     {
-        return $this->belongsTo(History::class,'product_id','id');
+        return $this->hasMany(History::class,'product_id','id');
     }
 
     public function product_vendor()
     {
-        return $this->belongsTo(ProductVendor::class,'product_id','id');
+        return $this->hasMany(ProductVendor::class,'product_id','id');
     }
 
     public function bidding()
     {
-        return $this->belongsTo(Bidding::class,'product_id','id');
+        return $this->hasMany(Bidding::class,'product_id','id');
     }
 }

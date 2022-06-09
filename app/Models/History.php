@@ -12,6 +12,6 @@ class History extends Model
     protected $table = 'history';
     public function product()
     {
-        return $this->hasMany(Product::class,'product_id','id');
+        return $this->belongsTo(Product::class,'product_id','id');
     }
 }

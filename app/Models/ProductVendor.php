@@ -12,6 +12,6 @@ class ProductVendor extends Model
     protected $table = 'product_vendor';
     public function product()
     {
-        return $this->hasMany(Product::class,'product_id','id');
+        return $this->belongsTo(Product::class,'product_id','id');
     }
 }

@@ -24,33 +24,105 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        DB::table('users')->insert([
-            'name' => 'Si User',
-            'email' => 'siuser@vcb.com',
-            'email_verified_at' => date('Y-m-d H:i:s'),
-            'password' => Hash::make('secret'),
+        // DB::table('users')->insert([
+        //     'name' => 'Si User',
+        //     'email' => 'siuser@vcb.com',
+        //     'email_verified_at' => date('Y-m-d H:i:s'),
+        //     'password' => Hash::make('secret'),
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => date('Y-m-d H:i:s')
+        // ]);
+
+        // DB::table('users')->insert([
+        //     'name' => 'Si Admin',
+        //     'email' => 'siadmin@vcb.com',
+        //     'email_verified_at' => date('Y-m-d H:i:s'),
+        //     'password' => Hash::make('secret'),
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => date('Y-m-d H:i:s'),
+        //     'role' => 'admin'
+        // ]);
+
+        // DB::table('users')->insert([
+        //     'name' => 'Si Manager',
+        //     'email' => 'simanager@vcb.com',
+        //     'email_verified_at' => date('Y-m-d H:i:s'),
+        //     'password' => Hash::make('secret'),
+            // 'created_at' => date('Y-m-d H:i:s'),
+            // 'updated_at' => date('Y-m-d H:i:s'),
+        //     'role' => 'manager'
+        // ]);
+
+        // DB::table('product')->insert([
+        //     'name' => Str::random(10),
+        //     'contact' => Str::random(50),
+        //     'price' => '50000000',
+        //     'location' => Str::random(100),
+        //     'expired_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' + 8 days')),
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => date('Y-m-d H:i:s')
+        // ]);
+
+        // DB::table('product')->insert([
+        //     'name' => Str::random(10),
+        //     'contact' => Str::random(50),
+        //     'price' => '65000000',
+        //     'location' => Str::random(100),
+        //     'expired_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' + 10 days')),
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => date('Y-m-d H:i:s')
+        // ]);
+
+        // DB::table('product')->insert([
+        //     'name' => Str::random(10),
+        //     'contact' => Str::random(50),
+        //     'price' => '70000000',
+        //     'location' => Str::random(100),
+        //     'expired_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' + 15 days')),
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => date('Y-m-d H:i:s')
+        // ]);
+
+        // DB::table('product')->insert([
+        //     'name' => Str::random(10),
+        //     'contact' => Str::random(50),
+        //     'price' => '20000000',
+        //     'location' => Str::random(100),
+        //     'expired_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' + 21 days')),
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => date('Y-m-d H:i:s')
+        // ]);
+
+        DB::table('history')->insert([
+            'product_id' => rand(1,10),
+            'history_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' - 100 days')),
+            'history' => Str::random(10),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'Si Admin',
-            'email' => 'siadmin@vcb.com',
-            'email_verified_at' => date('Y-m-d H:i:s'),
-            'password' => Hash::make('secret'),
+        DB::table('history')->insert([
+            'product_id' => rand(1,10),
+            'history_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' - 150 days')),
+            'history' => Str::random(10),
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-            'role' => 'admin'
+            'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'Si Manager',
-            'email' => 'simanager@vcb.com',
-            'email_verified_at' => date('Y-m-d H:i:s'),
-            'password' => Hash::make('secret'),
+        DB::table('history')->insert([
+            'product_id' => rand(1,10),
+            'history_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' - 130 days')),
+            'history' => Str::random(10),
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-            'role' => 'manager'
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('history')->insert([
+            'product_id' => rand(1,10),
+            'history_date' => date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' - 90 days')),
+            'history' => Str::random(10),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
         ]);
     }
 }

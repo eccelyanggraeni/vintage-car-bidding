@@ -14,11 +14,11 @@
                     <a class="nav-link" href="{{ url('/produk') }}">Produk</a>
                 </li>
                 @if(session('email'))
-                {{-- @can('isAdmin')
+                @can('isManager')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/kategori_produk') }}">Kategori Produk</a>
+                    <a class="nav-link" href="{{ url('/crudproduk') }}">Manajemen Produk</a>
                 </li> 
-                @endcan --}}
+                @endcan
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
                 </li>

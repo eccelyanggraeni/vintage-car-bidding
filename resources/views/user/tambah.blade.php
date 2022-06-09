@@ -21,11 +21,11 @@
                     </div>
                 @endforeach
             @endif
-            <form action="/register" method="POST">
+            <form action="/user/tambah" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nama</label>
-                    <input type="text" name="name" class="form-control" id="name">
+                    <label for="nama_user" class="form-label">Nama</label>
+                    <input type="text" name="nama_user" class="form-control" id="nama_user">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>

@@ -5,6 +5,13 @@
             <h4>{{ $title }}</h4>
         </div>
         <div class="row">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @endif
             <form method="POST" action="/auth">
                 @csrf
                 <div class="mb-3">
@@ -20,11 +27,6 @@
                         <button class="btn btn-primary" type="submit">Send</button>
                     </div>
                 </div>
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                @endif
             </form>
         </div>
     </div>

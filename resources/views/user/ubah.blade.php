@@ -21,27 +21,28 @@
                     </div>
                 @endforeach
             @endif
-            <form action="/register" method="POST">
+            <form action="/user/update" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nama</label>
-                    <input type="text" name="name" class="form-control" id="name">
+                    <label for="nama_user" class="form-label">Nama</label>
+                    <input type="text" name="nama_user" class="form-control" id="nama_user" value="{{ $user->name }}">
+                    <input type="hidden" name="id" class="form-control" id="id" value="{{ $user->id }}">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="email">
+                    <input type="email" name="email" class="form-control" id="email" value="{{ $user->email }}">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="password">
+                    <input type="password" name="password" class="form-control" id="password" value="{{ $user->password }}">
                 </div>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
                     <select name="role" class="form-control" id="role">
                         <option value="">---Pilih Role---</option>
-                        <option value="admin">Admin</option>
-                        <option value="manager">Manager</option>
-                        <option value="user">User</option>
+                        <option value="admin" @if ($user->role == "admin") {{"selected"}} @endif>Admin</option>
+                        <option value="manager" @if ($user->role == "manager") {{"selected"}} @endif>Manager</option>
+                        <option value="user" @if ($user->role == "user") {{"selected"}} @endif>User</option>
                     </select>
                 </div>
                 <div class="mb-3">

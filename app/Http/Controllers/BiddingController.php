@@ -8,7 +8,8 @@ use App\Models\Bidding;
 class BiddingController extends Controller
 {
     public function view_winner(){
-        return view('bidding.list_winner', ['title'=> 'Daftar Pemenang']);
+        $bidding = Bidding::all();
+        return view('bidding.list_winner', ['title'=> 'Daftar Pemenang', 'data' => $bidding]);
     }
 
     public function view_konfirmasi_bayar($id){

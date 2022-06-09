@@ -48,7 +48,7 @@
                     <a class="nav-link" href="{{ url('/') }}">Approval Pemenang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Daftar User</a>
+                    <a class="nav-link" href="{{ url('/user') }}">Daftar User</a>
                 </li>
                 @endcan
                 <li class="nav-item">

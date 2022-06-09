@@ -54,11 +54,11 @@ class ProductController extends Controller
         $produk->contact = $request->contact;
         $produk->location = $request->location;
         $produk->expired_date = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' + 10 days'));
-        // $produk->picture = "uploads/".date('YmdHis').$filename;
+        $produk->picture = "uploads/".date('YmdHis').$filename;
 
         $produk->save();
 
-        return redirect('/crudproduk');
+        return redirect('/crudriwayatform')->with('product_id', $produk->id);
     }
 
     public function editform(Request $request)

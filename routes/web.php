@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,12 @@ Route::post('/addproduk', [ProductController::class, 'save'])->middleware('can:i
 Route::get('/editprodukform', [ProductController::class, 'editform'])->middleware('can:isManager');
 Route::post('/editproduk', [ProductController::class, 'edit'])->middleware('can:isManager');
 Route::get('/hapusproduk', [ProductController::class, 'delete'])->middleware('can:isManager');
+
+//riwayat produk
+// Route::view('/crudriwayatform', 'crudriwayatform')->middleware('can:isManager');
+Route::get('/crudriwayatform', [HistoryController::class, 'crudform'])->middleware('can:isManager');
+Route::post('/addriwayat', [HistoryController::class, 'save'])->middleware('can:isManager');
+Route::get('/hapusriwayat', [HistoryController::class, 'delete'])->middleware('can:isManager');
 
 //bidding
 Route::get('/konfirmasi_bayar/{id}', [BiddingController::class, 'view_konfirmasi_bayar'])->middleware('can:isUser');

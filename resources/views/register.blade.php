@@ -14,6 +14,13 @@
                     {{Session::get('fail')}}
                 </div>
             @endif
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @endif
             <form action="/register" method="POST">
                 @csrf
                 <div class="mb-3">
@@ -42,11 +49,6 @@
                         <button class="btn btn-primary" type="submit">Send</button>
                     </div>
                 </div>
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                @endif
             </form>
         </div>
     </div>

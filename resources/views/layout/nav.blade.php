@@ -14,11 +14,43 @@
                     <a class="nav-link" href="{{ url('/produk') }}">Produk</a>
                 </li>
                 @if(session('email'))
-                {{-- @can('isAdmin')
+                @can('isUser')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/kategori_produk') }}">Kategori Produk</a>
+                    <a class="nav-link" href="{{ url('/') }}">Bidding</a>
                 </li> 
-                @endcan --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">List Bidding</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/]') }}">Riwayat Bidding</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/winner_list') }}">Daftar Pemenang</a>
+                </li>
+                @elsecan('isManager')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Daftar Produk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Daftar Riwayat Produk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Approval Pemenang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Approval Pembayaran</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Daftar Vendor Pengiriman</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Approval Pemenang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Daftar User</a>
+                </li>
+                @endcan
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
                 </li>

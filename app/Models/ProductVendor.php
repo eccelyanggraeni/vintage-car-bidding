@@ -9,6 +9,7 @@ use App\Models\Product;
 class ProductVendor extends Model
 {
     // use HasFactory;
+    protected $table = 'product_vendor';
     public function product()
     {
         return $this->hasMany(Product::class,'product_id','id');

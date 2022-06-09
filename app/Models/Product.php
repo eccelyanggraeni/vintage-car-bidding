@@ -11,6 +11,8 @@ use App\Models\Bidding;
 class Product extends Model
 {
     // use HasFactory;
+    protected $table = 'product';
+
     public function history()
     {
         return $this->belongsTo(History::class,'product_id','id');

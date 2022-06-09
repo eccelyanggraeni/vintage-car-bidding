@@ -38,3 +38,16 @@ Route::post('/addproduk', [ProductController::class, 'save'])->middleware('can:i
 Route::get('/editprodukform', [ProductController::class, 'editform'])->middleware('can:isManager');
 Route::post('/editproduk', [ProductController::class, 'edit'])->middleware('can:isManager');
 Route::get('/hapusproduk', [ProductController::class, 'delete'])->middleware('can:isManager');
+
+//bidding
+Route::get('/konfirmasi_bayar/{id}', [BiddingController::class, 'view_konfirmasi_bayar'])->middleware('can:isUser');
+Route::post('/konfirmasi_bayar', [BiddingController::class, 'save_konfirmasi_bayar'])->middleware('can:isUser');
+Route::get('/winner_list', [BiddingController::class, 'view_winner'])->middleware('can:isUser');
+
+//user
+Route::get('/user', [UserController::class, 'index'])->middleware('can:isAdmin');
+Route::get('/user/tambah', [UserController::class, 'view_tambah_user'])->middleware('can:isAdmin');
+Route::post('/user/tambah', [UserController::class, 'save_user'])->middleware('can:isAdmin');
+Route::get('/user/update/{id}', [UserController::class, 'view_update_user'])->middleware('can:isAdmin');
+Route::post('/user/update/', [UserController::class, 'update_user'])->middleware('can:isAdmin');
+Route::get('/user/hapus/{id}', [UserController::class, 'delete'])->middleware('can:isAdmin');

@@ -9,6 +9,7 @@ use App\Models\ProductVendor;
 class Vendor extends Model
 {
     // use HasFactory;
+    protected $table = 'vendor';
     public function product_vendor()
     {
         return $this->belongsTo(ProductVendor::class,'product_id','id');

@@ -9,6 +9,7 @@ use App\Models\Product;
 class Bidding extends Model
 {
     // use HasFactory;
+    protected $table = 'bidding';
     public function product()
     {
         return $this->hasMany(Product::class,'product_id','id');

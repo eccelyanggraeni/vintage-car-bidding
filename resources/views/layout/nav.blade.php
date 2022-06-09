@@ -14,11 +14,6 @@
                     <a class="nav-link" href="{{ url('/produk') }}">Produk</a>
                 </li>
                 @if(session('email'))
-                @can('isManager')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/crudproduk') }}">Manajemen Produk</a>
-                </li> 
-                @endcan
                 @can('isUser')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">Bidding</a>
@@ -34,10 +29,7 @@
                 </li>
                 @elsecan('isManager')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Daftar Produk</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Daftar Riwayat Produk</a>
+                    <a class="nav-link" href="{{ url('/crudproduk') }}">Daftar Produk</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">Approval Pemenang</a>

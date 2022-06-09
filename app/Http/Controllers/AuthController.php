@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function index(){
+        return view('login', ['title'=> 'Login']);
+    }
+
     public function authenticate(Request $request)
     {
         $credential = $request->validate([
@@ -16,6 +20,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($credential)){
             $request->session()->regenerate();
+            $request->session()->put('email', $request->email);
             return redirect('/');
         }
 

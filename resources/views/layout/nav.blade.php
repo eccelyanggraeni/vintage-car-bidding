@@ -56,7 +56,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/user') }}">Daftar User</a>
                 </li>
->>>>>>> ce81e0b024de4c55c33b9a9dc5a8f8bc21af97be
                 @endcan
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/logout') }}">Logout</a>

@@ -14,12 +14,11 @@
                     <a class="nav-link" href="{{ url('/produk') }}">Produk</a>
                 </li>
                 @if(session('email'))
-<<<<<<< HEAD
                 @can('isManager')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/crudproduk') }}">Manajemen Produk</a>
                 </li> 
-=======
+                @endcan
                 @can('isUser')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">Bidding</a>

@@ -8,7 +8,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                    <a class="nav-link" href="{{ url('/') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/produk') }}">Produk</a>
@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/register') }}">Register</a>
                 </li>
-                @endif --}}
+                @endif
             </ul>
             </div>
         </div>

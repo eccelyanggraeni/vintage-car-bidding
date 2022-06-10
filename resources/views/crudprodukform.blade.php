@@ -38,6 +38,7 @@
         <input class="btn btn-primary mt-2" type="submit" value="Save">
     </form>
     
+    @if(isset($produk))
     <h3 class="mt-5">Riwayat Service</h3>
     <div class="row">
         <div class="col-sm-4">
@@ -60,6 +61,7 @@
                 </tbody>
             </table>
         </div>
+    @endif
     </div>
 </div>
 

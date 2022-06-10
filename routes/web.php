@@ -6,11 +6,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\BiddingController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApprovalController;
->>>>>>> 290c09023eca20503b51988d2612cb8b714846a7
 
 /*
 |--------------------------------------------------------------------------

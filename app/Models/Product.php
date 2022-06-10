@@ -15,7 +15,7 @@ class Product extends Model
 
     public function history()
     {
-        return $this->hasMany(History::class,'product_id','id');
+        return $this->hasMany(History::class,'product_id','id')->orderBy('history_date','desc');
     }
 
     public function product_vendor()
@@ -25,6 +25,6 @@ class Product extends Model
 
     public function bidding()
     {
-        return $this->hasMany(Bidding::class,'product_id','id');
+        return $this->hasMany(Bidding::class,'product_id','id')->orderBy('bid_price','desc');
     }
 }

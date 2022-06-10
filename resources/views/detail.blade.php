@@ -9,12 +9,21 @@
             <div class="fs-5 mb-5">
                 <span>Kontak: {{$produk->contact}}</span>
             </div>
+            @foreach($produk->bidding as $pb)
+            <?php $last = 0; ?>
+            @if($pb->bid_price > $last)
+            <?php $max_bid = $pb->bid_price;?>
+            @endif
+            <?php $last = $pb->bid_price; ?>
+            @endforeach
             <p class="lead">Harga Awal: Rp{{number_format($produk->price,0,'.',',')}}</p>
             <div class="d-flex">
-                <a class="btn btn-success" type="button">
-                    <i class="bi-cart-fill me-1"></i>
-                    Start Bid
-                </a>
+                <form action="/addbidding" method="post">
+                    @csrf
+                    <input class="form-control" type="number" name="bid_price" id="" style="width:200px;" placeholder="Harga Bidding" {{isset($max_bid) ? 'max='.$max_bid : ''}} value="{{isset($max_bid) ? $max_bid : ''}}">
+                    <input type="hidden" name="product_id" value="{{$produk->id}}">
+                    <input class="btn btn-success" type="submit" value="Start Bid">
+                </form>
             </div>
         </div>
     </div>

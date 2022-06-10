@@ -17,7 +17,11 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-lg-8">
-                            <a class="btn btn-success" href="#">Start Bid</a>
+                        @can('isUser')
+                            <a class="btn btn-success" href="/detail?id={{$p->id}}">Start Bid</a>
+                        @else
+                            <a class="btn btn-success" href="/login">Start Bid</a>
+                        @endcan
                         </div>
                         <div class="col-lg-4" style="text-align:right;">
                             <a class="btn btn-primary" href="/detail?id={{$p->id}}">Detail</a>

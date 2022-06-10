@@ -24,7 +24,7 @@
             @csrf
             <div class="mb-3">
                 <label for="bidding_id" class="form-label">Bidding ID</label>
-                <input type="text" name="bidding_id"  class="form-control" id="bidding_id" value="{{ $bidding_id }}" disabled>
+                <input type="text" name="bidding_id"  class="form-control" id="bidding_id" value="{{ $bidding_id }}" readonly>
             </div>
             <div class="mb-3">
                 <label for="nominal" class="form-label">Nominal</label>

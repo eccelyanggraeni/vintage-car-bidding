@@ -6,6 +6,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\BiddingController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ApprovalController;
+>>>>>>> 290c09023eca20503b51988d2612cb8b714846a7
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +65,9 @@ Route::post('/user/tambah', [UserController::class, 'save_user'])->middleware('c
 Route::get('/user/update/{id}', [UserController::class, 'view_update_user'])->middleware('can:isAdmin');
 Route::post('/user/update/', [UserController::class, 'update_user'])->middleware('can:isAdmin');
 Route::get('/user/hapus/{id}', [UserController::class, 'delete'])->middleware('can:isAdmin');
+
+//approval
+Route::get('/approve/show_list_bid', [ApprovalController::class, 'view_approval_winner']);
+Route::get('/approve/choose_winner/{id1}/{id2}', [ApprovalController::class, 'approve_winner']);
+Route::get('/approve/show_list_payment', [ApprovalController::class, 'view_approval_bayar'])->middleware('can:isManager');
+Route::get('/approve/payment/{id}', [ApprovalController::class, 'approve_bayar'])->middleware('can:isManager');

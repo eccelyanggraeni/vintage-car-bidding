@@ -16,9 +16,6 @@
                 @if(session('email'))
                 @can('isUser')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">List Bidding</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/winner_list') }}">Daftar Pemenang</a>
                 </li>
                 @elsecan('isManager')

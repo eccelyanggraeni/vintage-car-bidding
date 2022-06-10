@@ -20,6 +20,7 @@
                     <th>Tanggal Bid</th>
                     <th>Produk</th>
                     <th>Nominal Bid</th>
+                    <th>Pemenang</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -30,8 +31,9 @@
                     <td>{{ $a->bidding_date }}</td>
                     <td>{{ $a->product_id }}</td>
                     <td>{{ $a->bid_price }}</td>
+                    <td>@if($a->win_status == 1) {{ "Ya" }} @else {{ "Tidak" }} @endif</td>
                     <td>
-                        <a href="{{ url('/approval/choose_winner/'.$a->id.'/'.$a->product_id) }}" class="btn btn-success">Pilih sebagai pemenang</a>
+                        <a href="{{ url('/approve/choose_winner/'.$a->id.'/'.$a->product_id) }}" class="btn btn-success">Pilih sebagai pemenang</a>
                     </td>
                 </tr>
             @endforeach

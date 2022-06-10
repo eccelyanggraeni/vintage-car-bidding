@@ -24,7 +24,7 @@ class BiddingController extends Controller
         $bidding->user_id = Auth::id();
 
         $bidding->save();
-        // return $id;
+        return redirect('/detail?id='.$request->product_id);
     }
 
     public function view_winner(){

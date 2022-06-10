@@ -16,14 +16,8 @@
                 @if(session('email'))
                 @can('isUser')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Bidding</a>
-                </li> 
-                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">List Bidding</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/]') }}">Riwayat Bidding</a>
-                </li> 
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/winner_list') }}">Daftar Pemenang</a>
                 </li>
@@ -32,17 +26,14 @@
                     <a class="nav-link" href="{{ url('/crudproduk') }}">Daftar Produk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Approval Pemenang</a>
+                    <a class="nav-link" href="{{ url('/approve/show_list_bid') }}">Approval Pemenang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Approval Pembayaran</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Daftar Vendor Pengiriman</a>
+                    <a class="nav-link" href="{{ url('/approve/show_list_payment') }}">Approval Pembayaran</a>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Approval Pemenang</a>
+                    <a class="nav-link" href="{{ url('/approve/show_list_bid') }}">Approval Pemenang</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/user') }}">Daftar User</a>

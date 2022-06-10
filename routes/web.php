@@ -65,5 +65,5 @@ Route::get('/user/hapus/{id}', [UserController::class, 'delete'])->middleware('c
 //approval
 Route::get('/approve/show_list_bid', [ApprovalController::class, 'view_approval_winner']);
 Route::get('/approve/choose_winner/{id1}/{id2}', [ApprovalController::class, 'approve_winner']);
-Route::get('/approve/show_list_payment', [ApprovalController::class, 'view_approval_winner']);
-Route::get('/approve/payment/{id}', [ApprovalController::class, 'approve_winner']);
+Route::get('/approve/show_list_payment', [ApprovalController::class, 'view_approval_bayar'])->middleware('can:isManager');
+Route::get('/approve/payment/{id}', [ApprovalController::class, 'approve_bayar'])->middleware('can:isManager');

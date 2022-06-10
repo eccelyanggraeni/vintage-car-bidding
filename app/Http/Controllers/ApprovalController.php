@@ -9,7 +9,7 @@ use App\Models\Product;
 class ApprovalController extends Controller
 {
     public function view_approval_winner(){
-        $bidding = Bidding::all()->orderBy('id', 'desc')->orderBy('nominal', 'desc');
+        $bidding = Bidding::all();
         return view('approval.choose_winner', ['title'=> 'Daftar List Bidding', 'data' => $bidding]);
     }
 
@@ -31,7 +31,7 @@ class ApprovalController extends Controller
     }
 
     public function view_approval_bayar(){
-        $bidding = Bidding::where('winner_status', 1)->whereNotNull('pay_file')->orderBy('id', 'asc')->get();
+        $bidding = Bidding::where('win_status', 1)->whereNotNull('pay_file')->orderBy('id', 'asc')->get();
         return view('approval.approve_payment', ['title'=> 'Daftar Konfirmasi Bayar', 'data' => $bidding]);
     }
 

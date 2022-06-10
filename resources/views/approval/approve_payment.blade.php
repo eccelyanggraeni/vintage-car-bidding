@@ -32,8 +32,8 @@
                     <td>{{ $a->bidding_date }}</td>
                     <td>{{ $a->user_id }}</td>
                     <td>{{ $a->bid_price }}</td>
-                    <td>@if($a->pay_status == 1) {{ "Sudah" }} @else {{ "Belum" }} @endif</td>
                     <td><img src="{{ asset('/files/'.$a->pay_file) }}" alt="example-image" width="100"></td>
+                    <td>@if($a->pay_status == 1) {{ "Sudah" }} @else {{ "Belum" }} @endif</td>
                     <td>
                         <a href="{{ url('/approve/payment/'.$a->id) }}" class="btn btn-success">Approve</a>
                     </td>

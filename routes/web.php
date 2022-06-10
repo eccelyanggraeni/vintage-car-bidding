@@ -6,8 +6,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\BiddingController;
+<<<<<<< HEAD
+=======
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApprovalController;
+>>>>>>> 290c09023eca20503b51988d2612cb8b714846a7
 
 /*
 |--------------------------------------------------------------------------
@@ -44,12 +47,13 @@ Route::post('/editproduk', [ProductController::class, 'edit'])->middleware('can:
 Route::get('/hapusproduk', [ProductController::class, 'delete'])->middleware('can:isManager');
 
 //riwayat produk
-// Route::view('/crudriwayatform', 'crudriwayatform')->middleware('can:isManager');
+Route::view('/crudriwayatform', 'crudriwayatform')->middleware('can:isManager');
 Route::get('/crudriwayatform', [HistoryController::class, 'crudform'])->middleware('can:isManager');
 Route::post('/addriwayat', [HistoryController::class, 'save'])->middleware('can:isManager');
 Route::get('/hapusriwayat', [HistoryController::class, 'delete'])->middleware('can:isManager');
 
 //bidding
+Route::post('/addbidding', [BiddingController::class, 'add_bidding'])->middleware('can:isUser');
 Route::get('/konfirmasi_bayar/{id}', [BiddingController::class, 'view_konfirmasi_bayar'])->middleware('can:isUser');
 Route::post('/konfirmasi_bayar', [BiddingController::class, 'save_konfirmasi_bayar'])->middleware('can:isUser');
 Route::get('/winner_list', [BiddingController::class, 'view_winner'])->middleware('can:isUser');

@@ -43,6 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $table = "users";
+
     public function bidding()
     {
         return $this->hasMany(Bidding::class,'user_id','id');

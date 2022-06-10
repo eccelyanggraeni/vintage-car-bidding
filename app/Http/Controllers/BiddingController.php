@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bidding;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class BiddingController extends Controller
@@ -28,12 +29,23 @@ class BiddingController extends Controller
     }
 
     public function view_winner(){
-        $bidding = Bidding::all();
-        return view('bidding.list_winner', ['title'=> 'Daftar Pemenang', 'data' => $bidding]);
+        $bidding = Bidding::where('win_status', 1)->get();
+        $user_name = array();
+        foreach($bidding as $v){
+            $user = User::where('id', $v->user_id)->first();
+            $user_name= [$v->id => $user->name];
+        }
+        
+        return view('bidding.list_winner', ['title'=> 'Daftar Pemenang', 'data' => $bidding, 'user' => $user_name]);
     }
 
-    public function view_konfirmasi_bayar($id){
-        return view('konfirmasi_bayar', ['bidding_id' => $id, 'title'=> 'Konfirmasi Bayar']);
+    public function view_konfirmasi_bayar($id, Request $request){
+        $get_user = User::where('email', $request->session()->get('email'))->first();
+        $check_user = Bidding::where('id', $id)->where('user_id', $get_user->id)->first();
+        if(!$check_user){
+            return "Mohon maaf Anda bukan pemenang dan tidak bisa mengakses halaman ini.";
+        }
+        return view('bidding.konfirmasi_bayar', ['bidding_id' => $id, 'title'=> 'Konfirmasi Pembayaran']);
     }
 
     public function save_konfirmasi_bayar(Request $request){
@@ -42,11 +54,12 @@ class BiddingController extends Controller
             'nominal' => 'required',
             'bukti_bayar' => 'required'
         ]);
-
-        $conf_pay = Bidding::where('id', $request->bidding_id)->where('pay_price', $request->nominal)->first();
+        
+        $get_user = User::where('email', $request->session()->get('email'))->first();
+        $conf_pay = Bidding::where('id', $request->bidding_id)->where('bid_price', $request->nominal)->where('user_id', $get_user->id)->first();
 
         if(!$conf_pay){
-            return redirect("/konfirmasi_bayar")->withFail('Konfirmasi Pembayaran gagal. Bidding ID atau nominal tidak sesuai.');
+            return redirect("/konfirmasi_bayar/".$request->bidding_id)->withFail('Konfirmasi Pembayaran gagal. Bidding ID atau nominal tidak sesuai.');
         }
 
         $file = $request->file('bukti_bayar');
@@ -58,9 +71,9 @@ class BiddingController extends Controller
         $update = $conf_pay->update();
 
         if($update){
-            return redirect("/konfirmasi_bayar")->withSuccess('Produk updated');
+            return redirect("/konfirmasi_bayar/".$request->bidding_id)->withSuccess('Konfirmasi pembayaran berhasil');
         } else {
-            return redirect("/konfirmasi_bayar")->withFail('Produk failed to update');
+            return redirect("/konfirmasi_bayar/".$request->bidding_id)->withFail('Konfirmasi pembayaran gagal terkirim');
         }
     }
 }
